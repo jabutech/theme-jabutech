@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ partial "head.html" . }}
+</head>
+<body>
+
+    {{ partial "nav.html" . }}
+
+    <div id="MainSection">
+        <div id="mainIndex">
+            <div class="container">
+                <!-- Content Kategori -->
+                <div class="row">
+                    <div class="container">
+                        <h1 id="title">List</h1>
+                        <hr>
+                        <div class="row">
+                        
+                            {{ range .Pages.ByPublishDate }}
+                            <div class="col-md-4">
+                                <div class="card mb-4 box-shadow">
+                                    <img class="card-img-top" src='{{ if eq .Params.Image "" }}{{else}}{{ .Params.Image}}{{end}}' alt="{{ .Title }}" width="612px"
+                                        height="320px" class="img-fluid mb-3">
+                                    <div class="card-body">
+                                        <a href="{{ .Permalink }}">
+                                            <h5 class="title">{{ .Title }}</h5>
+                                        </a>
+                                        <time>{{ .Date.Format "Mon, Jan 2, 2006" }}</time>
+                                    </div>
+                                </div>
+                            </div>
+                            {{end}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                {{ partial "pagination.html" . }}
+            </div>
+        </div>
+    </div>
+    
+    {{ partial "footer.html" . }}
+    {{ partial "js-init.html" . }}
+
+</body>
+</html>

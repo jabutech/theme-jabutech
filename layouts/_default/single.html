@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ partial "head.html" . }}
+</head>
+
+    {{ partial "nav.html" . }}
+
+  
+        <!-- Begin Article
+================================================== -->
+<div class="container">
+    <div id="MainSection">	
+        <div class="row">
+
+            <!-- Begin Fixed Left Share -->
+            <div class="col-md-2 col-xs-12">
+            
+            </div>
+            <!-- End Fixed Left Share -->
+
+            <!-- Begin Post -->
+            <div class="col-md-8 col-md-offset-2 col-xs-12">
+                <div class="mainheading">
+
+                    <!-- Begin Top Meta -->
+                    <div class="row post-top-meta">
+                        <div class="col-md-2">
+                            <a href="author.html"><img class="author-thumb" src="{{ .Site.Author.image }}" alt="Sal"></a>
+                        </div>
+                        <div class="col-md-10">
+                            <a class="link-dark" href="author.html">{{ .Site.Author.name }}</a><a href="#" class="btn follow">Follow</a>
+                            <br>
+                            <span class="post-date"> Di Tulis : {{ .Date.Format "02-01-2006" }}</span>
+                        </div>
+                    </div>
+                    <!-- End Top Menta -->
+
+                    <h1 class="posttitle">{{ .Title }}</h1>
+
+                </div>
+
+                <!-- Begin Post Content -->
+                <div class="article-post">
+                    <img class="card-img-top" src='{{ if eq .Params.Image "" }}{{else}}{{ .Params.Image}}{{end}}' alt="{{ .Title }}" width="612px"
+                                        height="320px" class="img-fluid mb-3">
+                    {{ .Content }}
+                </div>
+                <!-- End Post Content -->
+
+                <!-- Begin Tags -->
+                <div class="after-post-tags">
+                    <ul class="tags">
+                        {{ range .Params.tags }}
+                        <li><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a></li>
+                        {{ end }}
+                    </ul>
+                </div>
+                <!-- End Tags -->
+
+            </div>
+            <!-- End Post -->
+        </div>
+	</div>
+</div>
+
+    {{ partial "footer.html" . }}
+    {{ partial "js-init.html" . }}
+
+</body>
+</html>

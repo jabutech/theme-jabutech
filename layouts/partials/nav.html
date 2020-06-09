@@ -1,0 +1,28 @@
+<header id="HeaderSection">
+        <nav id="navbar" class="navbar navbar-expand-sm navbar-light fixed-top">
+            <div class="container">
+                <button class="navbar-toggler bg-white" data-toggle="collapse" data-target="#Navbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <a href="{{ .Site.BaseURL }}" class="navbar-brand">
+                    <img class="logo" src="/img/logo.png" alt="">
+                </a>
+
+                <div class="collapse navbar-collapse" id="Navbar">
+                    <ul class="navbar-nav">
+                        {{ partial "menu" . }}
+                    </ul>
+                    <!-- <ul class="navbar-nav ml-auto">
+                        <form class="form-inline my-2 my-lg-0" action="https://www.google.co.id" id="cse-search-box">
+                        <input type="hidden" name="cx" value="partner-pub-6279325630224392:9670052267" />
+                        <input type="hidden" name="ie" value="UTF-8" />
+                        <input type="hidden" name="sa" value="search" />
+                        <input class="form-control mr-sm-2" type="text" name="q" placeholder="Kata Kunci" aria-label="Search">
+                        <button class="btn btn-danger my-2 my-sm-0" type="submit">Cari</button>
+                    </form>
+                    </ul> -->
+                </div>
+            </div>
+        </nav>
+    </header>

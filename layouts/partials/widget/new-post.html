@@ -1,0 +1,26 @@
+
+                <!-- Right Side Section -->
+                <div class="col-lg-4">
+                    <div id="SideBar">
+
+                        <div class="mt-5">
+                            <p class="lead">Artikel Terbaru</p>
+                            {{ $paginator := .Paginate (where .Site.Pages "Type" "post") 6}}
+                            {{ range $paginator.Pages }}
+                            <div class="media">
+                                <a href="{{ .RelPermalink }}"><img src="#" width="120px;" height="100px;"
+                                        class="img-fluid d-flex pr-3"></a>
+                                <div class="media-body">
+                                    <a href="{{ .RelPermalink }}">
+                                        <h6>{{ .Title }}</h6>
+                                    </a>
+                                    <span class="text-muted">{{.Date.Format "02-01-2006" }}</span>
+                                </div>
+                            </div>
+                            {{ end }}
+                        </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
